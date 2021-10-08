@@ -12,9 +12,17 @@ class UserController {
     })
   }
 
+  editaUsuario(req, res){
+    const { id, nome, cpf, senha, idade } = req.body;
+
+    database.table('usuario').where('id', id).update({nome, cpf, senha, idade}).then(data => {
+      res.json(data)
+    }).catch(error => console.log(error))
+  }
+
   buscarUsuarios(req, res){
-    database.select('*').table('usuario').then(tarefas => {
-      res.json(tarefas);
+    database.select('*').table('usuario').then(data => {
+      res.json(data);
     }).catch(error => console.log(error));
   }
 }
