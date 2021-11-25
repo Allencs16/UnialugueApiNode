@@ -13,5 +13,7 @@ app.listen(4000, ()=>{
 })
 
 app.get('/', (req, res) => {
-  res.send("Rodando");
+  res.send({
+    message: "Está API esta rodando com docker"
+  });
 })
