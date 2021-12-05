@@ -8,3 +8,13 @@ services:
       - '4000:4000'
     volumes:
       - ./UniAlugue-API/
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./UniAlugue-API/
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: banco_unialugue
+      MYSQL_PASSWORD: password
